@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
+import Back from '@/components/Back.astro';
 import { render } from 'astro:content';
 import { type CollectionEntry, getCollection } from 'astro:content';
 
@@ -14,8 +15,47 @@ type Props = CollectionEntry<'projects'>;
 
 const project = Astro.props;
 const { Content } = await render(project);
+const { title, description } = project.data;
 ---
 
-<Base title={project.data.title} description={project.data.description}>
-  <Content />
+<Base title={title} description={description}>
+  <main class="container mx-auto my-8 max-w-4xl px-4">
+    <div class="mb-8">
+      <Back href="/projects">Projects</Back>
+
+      <header class="space-y-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-trans-blue h-2 w-2 animate-pulse rounded-full"
+            ></span>
+            <span
+              class="bg-trans-blue/10 text-trans-blue-dark rounded-md px-2 py-1 text-xs font-semibold tracking-wide uppercase"
+            >
+              Open Source Project
+            </span>
+          </div>
+        </div>
+
+        <h1
+          class="from-trans-blue via-soft-lavender to-trans-pink mb-4 bg-gradient-to-r bg-clip-text text-3xl leading-tight font-bold text-transparent md:text-4xl lg:text-5xl"
+        >
+          {title}
+        </h1>
+
+        <div
+          class="border-trans-blue/15 from-trans-blue/8 to-trans-pink/8 rounded-xl border bg-gradient-to-r p-6"
+        >
+          <p class="text-warm-gray-800 text-lg leading-relaxed font-medium">
+            {description}
+          </p>
+        </div>
+      </header>
+    </div>
+
+    <article
+      class="prose prose-lg prose-headings:font-bold prose-headings:text-warm-gray-900 prose-p:text-warm-gray-700 prose-p:leading-relaxed prose-strong:font-semibold prose-strong:text-trans-blue-dark prose-code:rounded prose-code:bg-trans-blue/15 prose-code:px-2 prose-code:py-1 prose-code:font-medium prose-code:text-trans-blue-dark prose-pre:rounded-lg prose-pre:border prose-pre:border-warm-gray-200 prose-pre:bg-warm-gray-50 prose-blockquote:border-l-4 prose-blockquote:border-trans-blue prose-blockquote:bg-trans-blue/8 prose-blockquote:pl-6 prose-blockquote:font-medium prose-a:font-medium prose-a:text-trans-blue-dark hover:prose-a:text-hover-blue max-w-none"
+    >
+      <Content />
+    </article>
+  </main>
 </Base>

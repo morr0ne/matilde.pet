@@ -1,12 +1,18 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'time'> {
   date: Date;
   updated?: boolean;
 }
 
-const { date, updated } = Astro.props;
+const { date, updated, class: className, ...attrs } = Astro.props;
 ---
 
-<time class="text-sm text-gray-500" datetime={date.toISOString()}>
+<time
+  class={className || 'text-sm text-gray-500'}
+  datetime={date.toISOString()}
+  {...attrs}
+>
   {updated ? 'Last updated: ' : ''}{date.toISOString().split('T')[0]}
 </time>

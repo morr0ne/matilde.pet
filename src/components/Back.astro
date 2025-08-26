@@ -10,9 +10,13 @@ const { icon, ...attrs } = Astro.props;
 ---
 
 <a
-  class="hover:text-trans-blue mb-4 inline-flex items-center gap-2 text-slate-600 transition-colors"
+  class="group bg-warm-gray-100/80 text-warm-gray-700 hover:bg-trans-pink/15 hover:text-trans-pink-dark mb-6 inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all hover:-translate-x-1"
   {...attrs}
 >
-  <Icon name="lucide:chevron-left" size={20} />
+  <Icon
+    name="lucide:chevron-left"
+    size={16}
+    class="transition-transform group-hover:-translate-x-1"
+  />
   <span><slot /></span>
 </a>
