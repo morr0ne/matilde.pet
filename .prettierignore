@@ -1,0 +1,7 @@
+**/dist
+**/node_modules
+**/.wxt
+**/.astro
+**/.output
+.github
+pnpm-lock.yaml
