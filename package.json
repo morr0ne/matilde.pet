@@ -2,7 +2,7 @@
 	"name": "matilde.pet",
 	"type": "module",
 	"version": "0.0.1",
-	"packageManager": "pnpm@10.20.0",
+	"packageManager": "pnpm@10.26.0",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro check && astro build",
@@ -14,12 +14,12 @@
 		"lint:fix": "biome lint --write --unsafe"
 	},
 	"dependencies": {
-		"astro": "^5.15.4"
+		"astro": "^5.16.6"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.5",
+		"@astrojs/check": "^0.9.6",
 		"@astrojs/sitemap": "^3.6.0",
-		"@biomejs/biome": "2.3.4",
+		"@biomejs/biome": "2.3.9",
 		"typescript": "^5.9.3"
 	},
 	"pnpm": {
