@@ -2,7 +2,7 @@
 title: 'Renaming all my projects and digital footprint'
 description: 'A small post describing how I renamed all my digital presence from simple
 changes to resigning all my commits with a new GPG key'
-pubDate: '2025-02-23'
+pubDate: 2025-02-23
 ---
 
 Recently I decided I had enough of seeing my deadname appearing everywhere I

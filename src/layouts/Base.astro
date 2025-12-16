@@ -1,0 +1,24 @@
+---
+import '@/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Matilde"
+			href={new URL('rss.xml', Astro.site)}
+		/>
+		<title>Matilde</title>
+		<ClientRouter />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
