@@ -1,6 +1,21 @@
 ---
 import '@/styles/global.css';
 import { ClientRouter } from 'astro:transitions';
+import Paw from '@/components/Paw.astro';
+
+const paws = [
+	{ top: '8%', left: '12%', size: '50px', rotate: '-25deg' },
+	{ top: '18%', left: '20%', size: '42px', rotate: '18deg' },
+	{ top: '28%', left: '28%', size: '46px', rotate: '-12deg' },
+	{ top: '10%', right: '18%', size: '48px', rotate: '30deg' },
+	{ top: '25%', right: '12%', size: '44px', rotate: '-28deg' },
+	{ bottom: '20%', left: '14%', size: '46px', rotate: '16deg' },
+	{ bottom: '12%', left: '24%', size: '48px', rotate: '-18deg' },
+	{ bottom: '28%', right: '16%', size: '42px', rotate: '22deg' },
+	{ bottom: '15%', right: '10%', size: '50px', rotate: '-32deg' },
+	{ top: '48%', left: '6%', size: '40px', rotate: '35deg' },
+	{ top: '58%', right: '8%', size: '45px', rotate: '-38deg' },
+];
 ---
 
 <!doctype html>
@@ -15,10 +30,42 @@ import { ClientRouter } from 'astro:transitions';
 			title="Matilde"
 			href={new URL('rss.xml', Astro.site)}
 		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Matilde</title>
 		<ClientRouter />
 	</head>
-	<body>
-		<slot />
+	<body class="relative min-h-screen overflow-x-hidden">
+		<!-- Paw prints -->
+		{paws.map((paw) => <Paw {...paw} />)}
+
+		<!-- Background gradients -->
+		<div class="fixed inset-0 -z-10">
+			<!-- Radial gradient overlays -->
+			<div
+				class="from-lavender/30 absolute inset-0 bg-radial-[at_20%_50%] to-transparent to-50%"
+			>
+			</div>
+			<div
+				class="from-peach/30 absolute inset-0 bg-radial-[at_80%_80%] to-transparent to-50%"
+			>
+			</div>
+			<div
+				class="from-pink/20 absolute inset-0 bg-radial-[at_40%_20%] to-transparent to-50%"
+			>
+			</div>
+			<!-- Base gradient -->
+			<div
+				class="from-cream via-peach-light to-lavender-light absolute inset-0 bg-linear-[135deg]"
+			>
+			</div>
+		</div>
+		<main class="font-fredoka h-screen w-screen">
+			<slot />
+		</main>
 	</body>
 </html>

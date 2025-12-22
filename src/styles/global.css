@@ -1,1 +1,12 @@
 @import 'tailwindcss';
+@theme {
+	--color-peach: oklch(0.77 0.13 30);
+	--color-peach-light: oklch(0.92 0.08 35);
+	--color-pink: oklch(0.87 0.08 330);
+	--color-pink-light: oklch(0.93 0.05 330);
+	--color-cream: oklch(0.98 0.01 60);
+	--color-lavender: oklch(0.82 0.12 295);
+	--color-lavender-light: oklch(0.95 0.06 295);
+
+	--font-fredoka: 'Fredoka', sans-serif;
+}
